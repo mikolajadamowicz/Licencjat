@@ -1,0 +1,3 @@
+github "Alamofire/Alamofire" "4.7.2"
+github "airbnb/lottie-ios" "23abc3a23997b8d4c16c89d29d34542dfeac040b"
+github "jrendel/SwiftKeychainWrapper" "3.0.1"

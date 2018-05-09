@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "3.0.1",
+  "iOS" : [
+    {
+      "name" : "SwiftKeychainWrapper",
+      "hash" : "e70b25b619e31b14822995104b12f8f332894b81961550d4955c58f02328fdd1"
+    }
+  ]
+}

@@ -14,6 +14,12 @@
 		DD4848CF20592D2F00CBE6AB /* LicencjatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4848CE20592D2F00CBE6AB /* LicencjatTests.swift */; };
 		DD4848DA20592D2F00CBE6AB /* LicencjatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4848D920592D2F00CBE6AB /* LicencjatUITests.swift */; };
 		DD4848E8205944FE00CBE6AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4848E7205944FE00CBE6AB /* ViewController.swift */; };
+		DD7FED4820984FE700E7B614 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FED4720984FE600E7B614 /* LoginView.swift */; };
+		DD7FED542098760600E7B614 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7FED512098760600E7B614 /* Alamofire.framework */; };
+		DD7FED552098760600E7B614 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7FED522098760600E7B614 /* SwiftKeychainWrapper.framework */; };
+		DD7FED562098760600E7B614 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7FED532098760600E7B614 /* Lottie.framework */; };
+		DD7FED582098986D00E7B614 /* QuestionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FED572098986D00E7B614 /* QuestionStruct.swift */; };
+		DD8695B7208513420097CFF6 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8695B6208513420097CFF6 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		DD4848D920592D2F00CBE6AB /* LicencjatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicencjatUITests.swift; sourceTree = "<group>"; };
 		DD4848DB20592D2F00CBE6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD4848E7205944FE00CBE6AB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD7FED4720984FE600E7B614 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DD7FED512098760600E7B614 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		DD7FED522098760600E7B614 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
+		DD7FED532098760600E7B614 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		DD7FED572098986D00E7B614 /* QuestionStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStruct.swift; sourceTree = "<group>"; };
+		DD8695B6208513420097CFF6 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7FED542098760600E7B614 /* Alamofire.framework in Frameworks */,
+				DD7FED552098760600E7B614 /* SwiftKeychainWrapper.framework in Frameworks */,
+				DD7FED562098760600E7B614 /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 				DD4848CD20592D2F00CBE6AB /* LicencjatTests */,
 				DD4848D820592D2F00CBE6AB /* LicencjatUITests */,
 				DD4848B720592D2F00CBE6AB /* Products */,
+				DD7FED4920986F6400E7B614 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +119,9 @@
 				DD4848C020592D2F00CBE6AB /* Assets.xcassets */,
 				DD4848C220592D2F00CBE6AB /* LaunchScreen.storyboard */,
 				DD4848C520592D2F00CBE6AB /* Info.plist */,
+				DD8695B6208513420097CFF6 /* Networking.swift */,
+				DD7FED4720984FE600E7B614 /* LoginView.swift */,
+				DD7FED572098986D00E7B614 /* QuestionStruct.swift */,
 			);
 			path = Licencjat;
 			sourceTree = "<group>";
@@ -125,6 +144,16 @@
 			path = LicencjatUITests;
 			sourceTree = "<group>";
 		};
+		DD7FED4920986F6400E7B614 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD7FED512098760600E7B614 /* Alamofire.framework */,
+				DD7FED532098760600E7B614 /* Lottie.framework */,
+				DD7FED522098760600E7B614 /* SwiftKeychainWrapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +164,7 @@
 				DD4848B220592D2F00CBE6AB /* Sources */,
 				DD4848B320592D2F00CBE6AB /* Frameworks */,
 				DD4848B420592D2F00CBE6AB /* Resources */,
+				DD7FED5020986F9500E7B614 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,12 +284,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DD7FED5020986F9500E7B614 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Lottie.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Lottie.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD4848B220592D2F00CBE6AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD8695B7208513420097CFF6 /* Networking.swift in Sources */,
+				DD7FED582098986D00E7B614 /* QuestionStruct.swift in Sources */,
 				DD4848E8205944FE00CBE6AB /* ViewController.swift in Sources */,
+				DD7FED4820984FE700E7B614 /* LoginView.swift in Sources */,
 				DD4848BA20592D2F00CBE6AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +483,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B35B9F4DF2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Licencjat/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Licencjat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mikolaj.adamowicz.Licencjat;
@@ -443,6 +503,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B35B9F4DF2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Licencjat/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Licencjat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mikolaj.adamowicz.Licencjat;
