@@ -23,9 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var liquidView: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    var question = Question()
+    var question = Question.init(text:"Nie znaleziono ankiety")
     let networking = Networking()
     
     override func viewDidLoad() {
@@ -34,8 +35,12 @@ class ViewController: UIViewController {
         liquidView.frame.size.height = self.view.frame.height/4 * 3.25
         liquidView.center.x = self.view.center.x
         liquidView.center.y = self.view.frame.height * 2
-        changeFirstViewOpacity(mode: viewMode.noQuestions)
-        self.fetchAPI()
+        
+        self.titleLabel.text = self.question.title
+        self.questionLabel.text = self.question.text
+        changeFirstViewOpacity(mode: viewMode.answering)
+        print(question.text)
+//        self.fetchAPI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,18 +73,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onClick(_ sender: UIButton) {
+        var choice = Double()
+        if sender == forButton {
+            question.forCount += 1
+            choice = Double(question.forCount)
+        } else {
+            question.againstCount += 1
+            choice = Double(question.againstCount)
+        }
         
-//        if sender == forButton {
-//            question.forCount += 1
-//        } else {
-//            question.againstCount += 1
-//        }
-//        networking.putAnswer(answer: question, completion: { (error) in
-//            if let error = error {
-//                fatalError(error.localizedDescription)
-//            }
-//        })
         showLiquidView()
+        updateQuestion(){
+            DispatchQueue.main.async {
+                let base = Double(self.question.forCount+self.question.againstCount)
+                let percent = Int(round(choice/base*100))
+                self.percentLabel.text = "\(percent) %"
+            }
+            
+        }
     }
     
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
@@ -93,19 +104,16 @@ class ViewController: UIViewController {
             print("View animated!")
         })
     }
-    
-    func fetchAPI() {
-        networking.getQuestions() { (result) in
+        
+    func updateQuestion(completion:@escaping ()->Void) {
+        networking.putAnswer(answer: self.question, completion: {(result) in
             switch result {
-            case .success(let question):
-                self.question = question[0]
-                self.titleLabel.text = self.question.title
-                self.questionLabel.text = self.question.text
-                self.changeFirstViewOpacity(mode: viewMode.answering)
+            case .success(let response):
+                completion()
             case .failure(let error):
                 fatalError("error: \(error.localizedDescription)")
             }
-        }
+        })
     }
     
 }

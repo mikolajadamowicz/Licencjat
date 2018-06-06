@@ -10,6 +10,7 @@ import Foundation
 
 public struct Question: Codable {
     var id: String
+//    var albumId: String
     var title: String
     var text: String
     var forCount: Int
@@ -17,23 +18,22 @@ public struct Question: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
+//        case albumId
         case title
         case text
         case forCount
         case againstCount
-        
     }
     
-    init() {
+    init(text: String) {
         self.id = ""
-        self.title = ""
-        self.text = ""
+//        self.albumId = "123"
+        self.title = "tytul roboczy"
+        self.text = text
         self.forCount = -1
         self.againstCount = -1
     }
 }
 
- enum Result<Value> {
-    case success(Value)
-    case failure(Error)
-}
+
+

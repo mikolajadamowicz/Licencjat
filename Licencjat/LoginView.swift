@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     func saveCredentials(albumID: String){
         let saveSuccessful: Bool = KeychainWrapper.standard.set(albumID, forKey: "albumID")
         if saveSuccessful {
-            self.performSegue(withIdentifier: "toViewController", sender: nil)
+            self.performSegue(withIdentifier: "toQuestionsTableViewController", sender: nil)
         } else {
             //tutaj daj catch
         }
