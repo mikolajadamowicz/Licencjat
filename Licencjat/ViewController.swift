@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 enum viewMode {
     case answered
@@ -16,7 +17,7 @@ enum viewMode {
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var liquidViewText: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var forButton: UIButton!
     @IBOutlet weak var againstButton: UIButton!
@@ -26,8 +27,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    var question = Question.init(text:"Nie znaleziono ankiety")
+    var question = Question.init(text:"Nie znaleziono ankiety",title:"Nie znaleziono ankiety")
     let networking = Networking()
+    let albumID: String? = KeychainWrapper.standard.string(forKey: "albumID")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +40,26 @@ class ViewController: UIViewController {
         
         self.titleLabel.text = self.question.title
         self.questionLabel.text = self.question.text
-        changeFirstViewOpacity(mode: viewMode.answering)
-        print(question.text)
-//        self.fetchAPI()
+        //safely unwrap this
+        checkAnswerStatus(albumID: albumID!)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkAnswerStatus(albumID:String){
+        if question.answered.contains(albumID) {
+            changeFirstViewOpacity(mode: viewMode.answered)
+            let percent = self.percentAnswered(upperNumber: question.forCount)
+            self.percentLabel.text = "\(percent) %"
+            self.liquidViewText.text = "Odpowiedziało do tej pory Za"
+            showLiquidView()
+        } else {
+            changeFirstViewOpacity(mode: viewMode.answering)
+        }
     }
     
     func changeFirstViewOpacity(mode: viewMode){
@@ -71,22 +85,29 @@ class ViewController: UIViewController {
             print("View animated!")
         })
     }
+    
+    func percentAnswered(upperNumber: Int) -> Int{
+        let choice = Double(upperNumber)
+        let base = Double(self.question.forCount+self.question.againstCount)
+        return Int(round(choice/base*100))
+    }
 
     @IBAction func onClick(_ sender: UIButton) {
-        var choice = Double()
+        var choice = Int()
+        //safely unwrap this
+        question.answered.append(albumID!)
         if sender == forButton {
             question.forCount += 1
-            choice = Double(question.forCount)
+            choice = question.forCount
         } else {
             question.againstCount += 1
-            choice = Double(question.againstCount)
+            choice = question.againstCount
         }
         
         showLiquidView()
         updateQuestion(){
             DispatchQueue.main.async {
-                let base = Double(self.question.forCount+self.question.againstCount)
-                let percent = Int(round(choice/base*100))
+                let percent = self.percentAnswered(upperNumber: choice)
                 self.percentLabel.text = "\(percent) %"
             }
             
@@ -108,7 +129,7 @@ class ViewController: UIViewController {
     func updateQuestion(completion:@escaping ()->Void) {
         networking.putAnswer(answer: self.question, completion: {(result) in
             switch result {
-            case .success(let response):
+            case .success( _):
                 completion()
             case .failure(let error):
                 fatalError("error: \(error.localizedDescription)")

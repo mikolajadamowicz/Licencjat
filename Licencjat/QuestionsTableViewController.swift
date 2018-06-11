@@ -10,11 +10,16 @@ import UIKit
 
 class QuestionsTableViewController: UITableViewController {
     //MARK: Properties
+    
+    @IBOutlet weak var addButton: UIBarButtonItem!
     var questions = [Question]()
     let networking = Networking()
     //MARK: Private Methods
     private func loadSampleQuestions(){
-        questions = [Question.init(text:"to jest pierwszy text"),Question.init(text:"to jest drugi text"),Question.init(text:"to jest trzeci text")]
+        questions = [Question.init(text:"to jest pierwszy text",title:"BAzowy tytul 1"),
+                     Question.init(text:"to jest drugi text",title:"BAzowy tytul 2"),
+                     Question.init(text:"to jest trzeci text",title:"BAzowy tytul 3")
+        ]
     }
     
     private func loadQuestions(){
@@ -27,8 +32,8 @@ class QuestionsTableViewController: UITableViewController {
                 fatalError("error: \(error.localizedDescription)")
             }
         }
-
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSampleQuestions()

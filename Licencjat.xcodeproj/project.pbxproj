@@ -23,6 +23,7 @@
 		DD7FED562098760600E7B614 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7FED532098760600E7B614 /* Lottie.framework */; };
 		DD7FED582098986D00E7B614 /* QuestionStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FED572098986D00E7B614 /* QuestionStruct.swift */; };
 		DD8695B7208513420097CFF6 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8695B6208513420097CFF6 /* Networking.swift */; };
+		DDA5BB6D20CED842001DAFDF /* UsersStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5BB6C20CED842001DAFDF /* UsersStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		DD7FED532098760600E7B614 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		DD7FED572098986D00E7B614 /* QuestionStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStruct.swift; sourceTree = "<group>"; };
 		DD8695B6208513420097CFF6 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		DDA5BB6C20CED842001DAFDF /* UsersStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				DD4848C520592D2F00CBE6AB /* Info.plist */,
 				DD8695B6208513420097CFF6 /* Networking.swift */,
 				DD7FED4720984FE600E7B614 /* LoginView.swift */,
+				DDA5BB6C20CED842001DAFDF /* UsersStruct.swift */,
 				DD7FED572098986D00E7B614 /* QuestionStruct.swift */,
 				DD3C9BCE20C52F6800353DFC /* QuestionTableViewCell.swift */,
 				DD3C9BD020C52F8D00353DFC /* QuestionsTableViewController.swift */,
@@ -327,6 +330,7 @@
 				DD4848E8205944FE00CBE6AB /* ViewController.swift in Sources */,
 				DD3C9BCF20C52F6800353DFC /* QuestionTableViewCell.swift in Sources */,
 				DD7FED4820984FE700E7B614 /* LoginView.swift in Sources */,
+				DDA5BB6D20CED842001DAFDF /* UsersStruct.swift in Sources */,
 				DD4848BA20592D2F00CBE6AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
