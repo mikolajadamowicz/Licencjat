@@ -30,12 +30,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        albumString = loginTextField.text!
+        
         if loginTextField.hasText && loginTextField.text?.count == 6 {
+            albumString = loginTextField.text!
+            self.authenticateUser()
             self.saveCredentials(albumID: albumString)
         } else {
-            let alert = UIAlertController(title: "Zly numer albumu", message: "numery maja długość 6 cyfr", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Zły numer albumu", message: "Numery mają długość 6 cyfr", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
     }
@@ -45,6 +47,10 @@ class LoginViewController: UIViewController {
             userType = .student
         } else if users.teachers.contains(albumString) {
             userType = .teacher
+        } else {
+            let alert = UIAlertController(title: "Zły numer albumu", message: "Nie ma takige numeru w liscie użytkowników", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
     }
     
@@ -53,7 +59,6 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let users):
                 self.users = users
-                self.authenticateUser()
             case .failure(let error):
                 fatalError("error: \(error.localizedDescription)")
             }

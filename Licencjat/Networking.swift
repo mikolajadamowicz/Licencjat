@@ -6,48 +6,7 @@
 //  Copyright © 2018 Mikolaj Adamowicz. All rights reserved.
 //
 
-//TODO: wrzucic numer albumu w header
-//TODO: cachowac numer albumu
-//TODO: logowanie zapytania do serwera o autoryzacje
-//TODO: Sprawdzenie czy dana osoba juz odpowiedziala na pytanie czy nie w zaleznosci od numeru albumu
-//TODO: wjebac Lottie gdzie sie da
-//NOTE: OPIS WSZYTSKITEGO z punktu widzenia UI
-/*
- 
- 1. otwiera sie table view
- 2. api get wszystkie pytania
- 3. cachuje pytania do structa ktory trzyma inne structy var pyatania = [Pytanie]
-    3.1. po lewej tytul pytania z 3 kropakami jak jest za dlugi
-    3.2. po prawej na gorze label Wynik:
-    3.3. po prawej na dole label ktory jak nie ma wyniku to wyswietla date a jak jest to wyswietla 80% za lub 70% przeciw
-    3.4. * Jesli sie da * to komorka jest wypelniona zielonym tyle i le bylo odpowiedzi za
- 4. klikam pytanie przeniesinei do innego ekranu
- 5. ekran z pytaniem taki jak jest teraz
- 6. dane sa pobierane z zcachowanych pytan z tablicy
- 7. po kliknieciu za albo przeciw
- 8. ekran odpowiedziales za, odpowiedzialo tak 50 %
- 9. lub odpowiedziales przeciw, odpowiedzialo tak 80 %
- 10. ekran po wybraniu zostaje automatycznie wlaczony jak juz jest po wyznaczonej dacie
- */
-
-//NOTE: OPIS WSZYTSKITEGO z punktu widzenia API
-/*
-
- 1. logowanie sprawdzam czy numer ma wystarczajaca ilosc numerkow i wysylam do serwera
- 2. serwer przysyla czy jest ok czy nie: jesli tak to wysyla OK jesli nie to komunikat ma wartosc erroru
- 3. zapisuje numeralbumu na dysk
- 4. wpierdalam go do headera na kazde zapytanie
- 4. jak pobieram pytania to wale get z numerem albumu
- 5. serwer musi wyszukac w osobnej bazie moj numer i zobaczyc w indeksach na jakie pytania odpoweidzialem a na jakie nie limit pytan 60.
- 6. czyli musze miec w bazie danych tabele:
- osoby= {
- id,
- ansered question= [questions]
- 
- */
-
 import Foundation
-import Alamofire
 
 enum Result<Value> {
     case success(Value)

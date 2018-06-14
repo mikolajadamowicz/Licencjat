@@ -10,10 +10,10 @@ import UIKit
 
 class QuestionsTableViewController: UITableViewController {
     //MARK: Properties
-    
     @IBOutlet weak var addButton: UIBarButtonItem!
     var questions = [Question]()
     let networking = Networking()
+    
     //MARK: Private Methods
     private func loadSampleQuestions(){
         questions = [Question.init(text:"to jest pierwszy text",title:"BAzowy tytul 1"),
@@ -38,12 +38,6 @@ class QuestionsTableViewController: UITableViewController {
         super.viewDidLoad()
         loadSampleQuestions()
         loadQuestions()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -126,7 +120,7 @@ class QuestionsTableViewController: UITableViewController {
             // pass data to next view
             if let indexPath = tableView.indexPathForSelectedRow{
                 let selectedRow = indexPath.row
-                let destinationVC = segue.destination as! ViewController
+                let destinationVC = segue.destination as! QuestionViewController
                 destinationVC.question = self.questions[selectedRow]
             }
         }

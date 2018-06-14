@@ -15,7 +15,7 @@ enum viewMode {
     case noQuestions
 }
 
-class ViewController: UIViewController {
+class QuestionViewController: UIViewController {
 
     @IBOutlet weak var liquidViewText: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
